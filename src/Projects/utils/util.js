@@ -10,7 +10,6 @@ export function transFormProjectList(list) {
 }
 
 export function delayMockData({ page, limit }) {
-  console.log({ page, limit });
   const data = DATA.slice(page * limit, (page + 1) * limit);
   return new Promise((res, rej) => {
     setTimeout(() => res(data), 1000);
