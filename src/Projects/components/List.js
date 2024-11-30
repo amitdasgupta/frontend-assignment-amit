@@ -30,7 +30,11 @@ export function List() {
       {list.map((data) => (
         <Item key={data.sNo} {...data} />
       ))}
-      {loading && <tr className="loading">Loading.....</tr>}
+      {loading && (
+        <tr className="loading row">
+          <td>Loading.....</td>
+        </tr>
+      )}
       {hasMore && !loading && <tr id="pivot" ref={pivotRef}></tr>}
     </tbody>
   );
