@@ -1,3 +1,4 @@
+import DATA from "../frontend-assignment.json";
 export function transFormProjectList(list) {
   return list.map((data) => {
     return {
@@ -8,8 +9,10 @@ export function transFormProjectList(list) {
   });
 }
 
-export function delayMock() {
+export function delayMockData({ page, limit }) {
+  console.log({ page, limit });
+  const data = DATA.slice(page * limit, (page + 1) * limit);
   return new Promise((res, rej) => {
-    setTimeout(() => res(), 1000);
+    setTimeout(() => res(data), 1000);
   });
 }

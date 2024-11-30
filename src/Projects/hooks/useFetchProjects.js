@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { delayMock, transFormProjectList } from "../utils/util";
+import { delayMockData, transFormProjectList } from "../utils/util";
 
 export function useFetchProject() {
   const [error, setError] = useState(null);
@@ -7,12 +7,12 @@ export function useFetchProject() {
   const fetchData = async ({ page, limit }) => {
     try {
       setIsLoading(true);
-      const resp = await fetch(
-        `http://localhost:8000/data?_page=${page}&_per_page=${limit}`
-      );
-      await delayMock();
-      const { data } = await resp.json();
-      return transFormProjectList(data);
+
+      const resp = await delayMockData({
+        page,
+        limit,
+      });
+      return transFormProjectList(resp);
     } catch (error) {
       setError(error);
     } finally {

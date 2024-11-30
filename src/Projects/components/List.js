@@ -6,7 +6,7 @@ import { useInfinteScroller } from "../hooks/useInfiniteScroller";
 
 export function List() {
   const [list, setList] = useState([]);
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
   const [hasMore, setHasMore] = useState(true);
   const { error, loading, fetchData } = useFetchProject();
   const handleIntersection = () => {
